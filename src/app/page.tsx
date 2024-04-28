@@ -1,12 +1,7 @@
-import { useRouter } from "next/router";
-
-export default function Page() {
-  const router = useRouter();
-  const slug = (router.query.slug as string[]) || [];
-
+export default function Page({ params }: { params: { slug: string } }) {
   return(
     <>
-      {slug ? <h1>Slug: {slug.join("/")}</h1> : <h1>Error</h1>} 
+      {params.slug ? <h1>Slug: {params.slug}</h1> : <h1>Home</h1>} 
     </>
   );
 }
