@@ -1,14 +1,9 @@
 'use client';
 
-import { useRouter } from 'next/router';
+import { usePathname } from 'next/navigation'
 
 export default function Page() {
-  const router = useRouter();
-  const slug = (router.query.slug as string[]) || [];
+  const pathname = usePathname();
 
-  return(
-    <>
-      {slug ? <h1>Slug: {slug.join("/")}</h1> : <h1>Home</h1>} 
-    </>
-  );
+  return <h1>Current pathname: {pathname}</h1>
 }
